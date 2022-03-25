@@ -5,12 +5,10 @@ let soma = (n1, n2) => {
     if (typeof (n1) != 'number' || typeof (n2) != 'number') {
         return console.log('Digite um número válido!');
     }
-    return new Promise((resolve, reject) => {
-        fs.appendFile(`result.txt`, `${n1} + ${n2} = ${resultado}\n`)
-            .then(() => {
-                resolve();
-            })
-    })
+    return new Promise(
+        async (resolve, reject) => {
+        await fs.appendFile(`result.txt`, `${n1} + ${n2} = ${resultado}\n`)
+    });
 }
-soma("a", 1);
-soma(20, 10);
+soma("a", 1);// Não é um número válido;
+soma(20, 10); // Retorna a soma entre os dois valores;
